@@ -10,6 +10,7 @@ public class SwingUi extends JFrame implements ActionListener{
     JButton red = new JButton("RED");
     JButton green = new JButton("GREEN");
     JButton blue = new JButton("BLUE");
+    JButton goodDay = new JButton("Today is a good day");
 
     public SwingUi() {
 
@@ -18,7 +19,7 @@ public class SwingUi extends JFrame implements ActionListener{
     public void init() {
 
         this.setLayout(null);
-        this.setSize(400,200);
+        this.setSize(520,200);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.getContentPane().setBackground(Color.YELLOW);
@@ -38,6 +39,12 @@ public class SwingUi extends JFrame implements ActionListener{
         blue.setFocusable(false);
         blue.addActionListener(this);
 
+        goodDay.setBounds(380,20,100,25);
+        goodDay.setVisible(true);
+        goodDay.setFocusable(false);
+        goodDay.addActionListener(this);
+
+        this.add(goodDay);
         this.add(blue);
         this.add(green);
         this.add(red);
@@ -47,14 +54,24 @@ public class SwingUi extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if(e.getSource()==red)
+        if (e.getSource() == red) {
             this.getContentPane().setBackground(Color.RED);
+            this.setTitle("I am red");
+        }
 
-        if(e.getSource()==green)
+        if (e.getSource() == green){
             this.getContentPane().setBackground(Color.GREEN);
+            this.setTitle("I am green");
+        }
 
-        if(e.getSource()==blue)
+        if (e.getSource()==blue) {
             this.getContentPane().setBackground(Color.BLUE);
+            this.setTitle("I am blue");
+        }
+
+        if (e.getSource()==goodDay)
+            this.setTitle("Today is a good day");
+
 
     }
 }
