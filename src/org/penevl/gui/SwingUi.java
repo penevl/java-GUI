@@ -11,7 +11,7 @@ public class SwingUi extends JFrame implements ActionListener{
     JButton green = new JButton("GREEN");
     JButton blue = new JButton("BLUE");
     JButton goodDay = new JButton("Today is a good day");
-
+    JLabel text = new JLabel("Initial text");
     public SwingUi() {
 
     }
@@ -44,6 +44,10 @@ public class SwingUi extends JFrame implements ActionListener{
         goodDay.setFocusable(false);
         goodDay.addActionListener(this);
 
+        text.setBounds(200,55,300,25);
+        text.setVisible(true);
+
+        this.add(text);
         this.add(goodDay);
         this.add(blue);
         this.add(green);
@@ -57,16 +61,19 @@ public class SwingUi extends JFrame implements ActionListener{
         if (e.getSource() == red) {
             this.getContentPane().setBackground(Color.RED);
             this.setTitle("I am red");
+            text.setText("Red pressed");
         }
 
         if (e.getSource() == green){
             this.getContentPane().setBackground(Color.GREEN);
             this.setTitle("I am green");
+            text.setText("Green pressed");
         }
 
         if (e.getSource()==blue) {
             this.getContentPane().setBackground(Color.BLUE);
             this.setTitle("I am blue");
+            text.setText("Blue pressed");
         }
 
         if (e.getSource()==goodDay)
